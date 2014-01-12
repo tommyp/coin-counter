@@ -14,9 +14,20 @@
       
   </head>
   <body>
+  <div class="container">
+      <h1>Coin Counter</h1>
+      <hr/>
+      <form>
+        <h3><label for="amount">How many pennies?</label></h3>
+        <br/>
+        <input name="amount" id="amount" placeholder="0" autocomplete="off" />
+      </form>
+    </div>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     
+
+    <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/underscore.min.js"></script>
     <script src="js/app.js"></script>  
     <script src="js/test/qunit.js"></script>
