@@ -70,3 +70,9 @@ form input:focus {
   clear: both;
   width: 100%;
 }
+
+#tests {
+  display: block;
+  margin: 1em auto;
+  width: 100px;
+}
