@@ -6,35 +6,43 @@ var Calc = function(amount) {
   this.coins = [
     {
       coin : 200, 
-      count : 0
+      count : 0,
+      label : '£2'
     },
     {
       coin : 100, 
-      count : 0
+      count : 0,
+      label : '£1'
     },
     {
       coin : 50, 
-      count : 0
+      count : 0,
+      label : '50p'
     },
     {
       coin : 20, 
-      count : 0
+      count : 0,
+      label : '20p'
     },
     {
       coin : 10, 
-      count : 0
+      count : 0,
+      label : '10p'
     },
     {
       coin : 5, 
-      count : 0
+      count : 0,
+      label : '5p'
     },
     {
       coin : 2, 
-      count : 0
+      count : 0,
+      label : '2p'
     },
     {
       coin : 1, 
-      count : 0
+      count : 0,
+      label : '1p'
     }
   ];
 };
@@ -74,7 +82,6 @@ var CounterView = function() {
   var self = this;
   self.form = $('form');
   self.input = $('input#amount');
-  self.calc = new Calc;
   self.pennies = 0;
 
   // On submission of form...
@@ -85,6 +92,12 @@ var CounterView = function() {
       $('.error').hide();
       // Run the sanitize input function
       self.sanitizeInput();
+      // Create a calc object with the amount of pennies
+      self.calc = new Calc(self.pennies);
+      // Calculate the coins we need
+      self.calc.calculate();
+      // Then render the result
+      self.renderResult();
   });
 };
 
@@ -101,10 +114,19 @@ CounterView.prototype.sanitizeInput = function() {
       this.pennies = pennies;
     };
   } else {
-    
+
     // If it doesn't format as a UK currency, show the error
     $('.error').text("That doesn't look like a valid amount!").show();
   };
+};
+
+CounterView.prototype.renderResult = function() {
+  var result = "";
+  _.each(this.calc.coins, function(element, index, list) {
+    var result_html = "<div class='coin coin-" + element['coin'] + "'><img src='images/" + element['coin'] + ".png'/><p>" + element['count'] + " x " + element['label'] + "</p></div>";
+    result = result.concat(result_html);
+  });
+  $('.result').html(result).show();
 };
 
 $(document).ready(function() {
