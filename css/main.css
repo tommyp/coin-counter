@@ -1,0 +1,44 @@
+body {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: "Helvetica Neue", Arial, Sans-serif;
+  font-size: 16px;
+  padding-top: 1em;
+  color: #323232;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4.5em;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2.4em;
+}
+
+hr {
+  border-style: normal;
+  border: 5px solid #323232;
+}
+
+form {
+  margin-top: 2em;
+}
+
+input {
+  padding: 0;
+  border: 0;
+  font-size: 3.6em;
+  text-align: center;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
